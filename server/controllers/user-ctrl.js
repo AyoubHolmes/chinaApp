@@ -86,7 +86,7 @@ confirmUser = async (req, res) => {
         user.isConfirmed = 'true';
         user
             .save()
-            .then(() => res.redirect('http://localhost:5000/login')
+            .then(() => res.redirect('http://161.35.129.190/login')
             )
             .catch((error) => res.status(404).json({
                 error,
@@ -109,7 +109,7 @@ applyUser = async (req, res) => {
         user.isApplied = 'true';
         user
             .save()
-            .then(() => res.redirect('http://localhost:5000/application?id=' + id))
+            .then(() => res.redirect('http://161.35.129.190/application?id=' + id))
             .catch((error) => res.status(404).json({
                 error,
                 message: 'User not applied'

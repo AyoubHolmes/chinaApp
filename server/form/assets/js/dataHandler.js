@@ -77,26 +77,26 @@ prDatas.userId = param.id[0];
 studyPlan.userId = param.id[0];
 // ****************************************************************
 
-fetch('http://localhost:5000/checkToken')
+fetch('http://161.35.129.190/checkToken')
 	.then(res => {
     	if (res.status === 200) {
 			res.json().then(r => {
                 console.log(r)
 				if(r.id !== param.id[0])
-                    window.location.href = ('http://localhost:5000/login');
-                fetch('http://localhost:5000/api//user/' + r.id)
+                    window.location.href = ('http://161.35.129.190/login');
+                fetch('http://161.35.129.190/api//user/' + r.id)
                 .then(res => {
                     res.json()
                     .then(r => {
                         if(r.user.isApplied === 'true')
-                        window.location.href = ('http://localhost:5000/application?id=' + r.user._id);
+                        window.location.href = ('http://161.35.129.190/application?id=' + r.user._id);
 
                     })
                 })
 			});
 		}
 		else if (res.status === 401)
-			window.location.href = ('http://localhost:5000/login');
+			window.location.href = ('http://161.35.129.190/login');
 	})
 	.catch(err => {
 		console.error(err);
@@ -199,14 +199,14 @@ $(".delete-button").click(function(event){
 */
 $('#submitButton-0').click(() => {
     console.log('test')
-    fetch('http://localhost:5000/api//personaldata/' + personalData.userId)
+    fetch('http://161.35.129.190/api//personaldata/' + personalData.userId)
 		.then(res => {
 			if (res.status === 200) {
-                $.put('http://localhost:5000/api/personaldata/' + personalData.userId, personalData, (data, status) => {
+                $.put('http://161.35.129.190/api/personaldata/' + personalData.userId, personalData, (data, status) => {
                 })
 			}
 			else if (res.status === 404)
-                $.post('http://localhost:5000/api/personaldata/', personalData, (data, status) => {
+                $.post('http://161.35.129.190/api/personaldata/', personalData, (data, status) => {
                 })
         })
 		.catch(err => {

@@ -350,14 +350,14 @@
 	});
 
 		$('#submitButton-0').click(() => {
-			fetch('http://localhost:5000/api//personaldata/' + personalData.userId)
+			fetch('http://161.35.129.190/api//personaldata/' + personalData.userId)
 				.then(res => {
 					if (res.status === 200) {
-						$.put('http://localhost:5000/api/personaldata/' + personalData.userId, personalData, (data, status) => {
+						$.put('http://161.35.129.190/api/personaldata/' + personalData.userId, personalData, (data, status) => {
 						})
 					}
 					else if (res.status === 404)
-						$.post('http://localhost:5000/api/personaldata/', personalData, (data, status) => {
+						$.post('http://161.35.129.190/api/personaldata/', personalData, (data, status) => {
 						})
 				})
 				.catch(err => {
@@ -365,14 +365,14 @@
 				});
 		})
 		$('#submitButton-1').click(() => {
-			fetch('http://localhost:5000/api/familydata/' + familyData.userId)
+			fetch('http://161.35.129.190/api/familydata/' + familyData.userId)
 				.then(res => {
 					if (res.status === 200) {
-						$.put('http://localhost:5000/api/familydata/' + familyData.userId, familyData, (data, status) => {
+						$.put('http://161.35.129.190/api/familydata/' + familyData.userId, familyData, (data, status) => {
 						})
 					}
 					else if (res.status === 404){
-						$.post('http://localhost:5000/api/familydata/', familyData, (data, status) => {
+						$.post('http://161.35.129.190/api/familydata/', familyData, (data, status) => {
 						})}
 				})
 				.catch(err => {
@@ -380,33 +380,33 @@
 				});
 		})
 		$('#submitButton-2').click(() => {
-			fetch('http://localhost:5000/api/eddata/' + edDatas.userId)
+			fetch('http://161.35.129.190/api/eddata/' + edDatas.userId)
 				.then(res => {
 					if (res.status === 200) {
 						edDatas.majors = JSON.stringify(edDatas.majors);
 						console.log(edDatas)
-						$.put('http://localhost:5000/api/eddata/' + edDatas.userId, edDatas, (data, status) => {
+						$.put('http://161.35.129.190/api/eddata/' + edDatas.userId, edDatas, (data, status) => {
 						})
 					}
 					else if (res.status === 404){
 						edDatas.majors = JSON.stringify(edDatas.majors);
 						console.log(edDatas);
-						$.post('http://localhost:5000/api/eddata/', edDatas, (data, status) => {
+						$.post('http://161.35.129.190/api/eddata/', edDatas, (data, status) => {
 						})}
 				})
 				.catch(err => {
 					
 				});
-			fetch('http://localhost:5000/api/prdata/' + prDatas.userId)
+			fetch('http://161.35.129.190/api/prdata/' + prDatas.userId)
 				.then(res => {
 					if (res.status === 200) {
 						prDatas.posts = JSON.stringify(prDatas.posts);
-						$.put('http://localhost:5000/api/prdata/' + prDatas.userId, prDatas, (data, status) => {
+						$.put('http://161.35.129.190/api/prdata/' + prDatas.userId, prDatas, (data, status) => {
 						})
 					}
 					else if (res.status === 404){
 						prDatas.posts = JSON.stringify(prDatas.posts);
-						$.post('http://localhost:5000/api/prdata/', prDatas, (data, status) => {
+						$.post('http://161.35.129.190/api/prdata/', prDatas, (data, status) => {
 						})}
 				})
 				.catch(err => {
@@ -419,21 +419,21 @@
 			console.log(edDatas)
 			console.log(prDatas)
 			console.log(studyPlan)
-			fetch('http://localhost:5000/api/studyplan/' + studyPlan.userId)
+			fetch('http://161.35.129.190/api/studyplan/' + studyPlan.userId)
 				.then(res => {
 					if (res.status === 200) {
-						$.put('http://localhost:5000/api/studyplan/' + studyPlan.userId, studyPlan, (data, status) => {
+						$.put('http://161.35.129.190/api/studyplan/' + studyPlan.userId, studyPlan, (data, status) => {
 						})
 					}
 					else if (res.status === 404){
-						$.post('http://localhost:5000/api/studyplan/', studyPlan, (data, status) => {
+						$.post('http://161.35.129.190/api/studyplan/', studyPlan, (data, status) => {
 						})}
 				})
 				.catch(err => {
 					console.error(err);
 				});
-			$.get('http://localhost:5000/apply/user?id=' + personalData.userId, familyData, (data, status) => {
-        	window.location.href = ('http://localhost:5000/application?id=' + personalData.userId);            
+			$.get('http://161.35.129.190/apply/user?id=' + personalData.userId, familyData, (data, status) => {
+        	window.location.href = ('http://161.35.129.190/application?id=' + personalData.userId);            
     		})
 		})
 
