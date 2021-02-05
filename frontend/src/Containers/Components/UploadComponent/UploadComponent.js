@@ -36,7 +36,7 @@ const UploadComponent = (props) => {
         const formData = new FormData()
         formData.append("file", data.file[0])
         console.log(data.file[1])
-        const res = await fetch("http://localhost:5000/" + props.link +"?id=" + props.id, {
+        const res = await fetch("http://161.35.129.190/" + props.link +"?id=" + props.id, {
           method: "POST",
           body: formData
         }).then(res => res.json().then(r => {

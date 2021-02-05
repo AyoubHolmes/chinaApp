@@ -9,13 +9,13 @@ import Title from '../ClientBoard/Title';
 const AppTable = (props) => {
     const [application, setApplication] = useState({})
     useEffect(()=> {
-        fetch('http://localhost:5000/checkToken')
+        fetch('http://161.35.129.190/checkToken')
         .then(res => {
             if (res.status === 404)
                 props.set({isError: true, message: 'Application not found'})
             else if(res.status === 200)
                 res.json().then(result => {
-                    fetch('http://localhost:5000/api/user/' + result.id)
+                    fetch('http://161.35.129.190/api/user/' + result.id)
                     .then(r => {
                         r.json().then(user => {
                             setApplication(user.user);

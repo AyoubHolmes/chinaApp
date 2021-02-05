@@ -59,7 +59,7 @@ const SignUp = (props)=> {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		fetch('http://localhost:5000/api/user/', {
+		fetch('http://161.35.129.190/api/user/', {
 			method: 'POST',
 			body: JSON.stringify({name: fullName, email: email, password: password, phone: phoneNumber}),
 			headers: {
@@ -72,7 +72,7 @@ const SignUp = (props)=> {
 					setError({isError: true, errorMessage: err.error})
 				})
 			else
-				window.location.href = ('http://localhost:5000/confirmation');
+				window.location.href = ('http://161.35.129.190/confirmation');
 		})
 		.catch(err => {
 			setError({isError: true, errorMessage: 'There is an iusse, try again later.'})

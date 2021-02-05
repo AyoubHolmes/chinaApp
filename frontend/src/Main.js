@@ -13,17 +13,17 @@ import './Main.css'
 
 const Main = (props) => {
   useEffect(() => {
-    fetch('http://localhost:5000/checkToken').then(res =>{
+    fetch('http://161.35.129.190/checkToken').then(res =>{
       console.log(res.status);
       if(res.ok){
            res.json().then(r => {
-            fetch('http://localhost:5000/api/user/' + r.id)
+            fetch('http://161.35.129.190/api/user/' + r.id)
             .then(result => {
               result.json().then(user => {
                 if (user.user.isApplied === 'true')
                   props.history.replace('/application?id=' + user.user._id);
                 else
-                  window.location.href = ('http://localhost:5000/user?id=' + user.user._id);
+                  window.location.href = ('http://161.35.129.190/user?id=' + user.user._id);
               })
             })
            });
