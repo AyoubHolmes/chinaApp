@@ -50,11 +50,11 @@ const Login = (props)=> {
 
 	
 	useEffect(()=>{
-		/*fetch('http://161.35.129.190/checkToken')
+		/*fetch('http://161.35.177.202/checkToken')
 		.then(res => {
 			if (res.status === 200) {
 				res.json().then(r => {
-					window.location.href = ('http://161.35.129.190/user/?id=' + r.id);
+					window.location.href = ('http://161.35.177.202/user/?id=' + r.id);
 				});
 			}
 		})
@@ -66,14 +66,14 @@ const Login = (props)=> {
 
 	const getId = (email) => {
 		let id = '';
-		fetch('http://161.35.129.190/api/userid/' + email)
+		fetch('http://161.35.177.202/api/userid/' + email)
 		.then(res => {
 			if (res.status === 200) {
 				res.json().then(r => {
 					if(r.user.isApplied === 'false')
-						window.location.href = ('http://161.35.129.190/user?id=' + r.user._id);
+						window.location.href = ('http://161.35.177.202/user?id=' + r.user._id);
 					else
-						window.location.href = ('http://161.35.129.190/application?id=' + r.user._id);
+						window.location.href = ('http://161.35.177.202/application?id=' + r.user._id);
 				});
 			}
 			else if (res.status === 404)
@@ -90,7 +90,7 @@ const Login = (props)=> {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		fetch('http://161.35.129.190/api/user/authenticate', {
+		fetch('http://161.35.177.202/api/user/authenticate', {
 			method: 'POST',
 			body: JSON.stringify({email: email, password: password}),
 			headers: {

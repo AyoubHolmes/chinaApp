@@ -14,7 +14,7 @@ const sendMail = async (email, id) => {
         from: 'ayoubboulbaz123@gmail.com',
         to: `${email}`,
         subject: 'Road to China: Confirmation email',
-        text: 'Application form link: http://161.35.129.190/confirm/user?id=' + id 
+        text: 'Application form link: http://161.35.177.202/confirm/user?id=' + id 
       };
       
       transporter.sendMail(mailOptions, function(error, info){
